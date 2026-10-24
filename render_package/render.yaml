@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: wexo-telegram-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python wexo_telegram_bot.py
+    healthCheckPath: /health
+    envVars:
+      - key: WEXO_BOT_TOKEN
+        sync: false
+      - key: WEXO_BOT_USERNAME
+        value: wexosystem_bot
+      - key: WEBHOOK_URL
+        sync: false
+      - key: WEBHOOK_SECRET
+        generateValue: true

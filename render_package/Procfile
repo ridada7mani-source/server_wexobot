@@ -1,0 +1,1 @@
+web: python wexo_telegram_bot.py
